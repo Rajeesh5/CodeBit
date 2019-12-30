@@ -1,8 +1,6 @@
-#include<iostream>
+#include "Header.h"
 
-using namespace std;
-
-int main_main() {
+int main_1() {
 
 	cout << "hello\n";
 	return 0;

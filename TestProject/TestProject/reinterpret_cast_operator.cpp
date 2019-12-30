@@ -1,6 +1,4 @@
-#include<iostream>
-
-using namespace std;
+#include "Header.h"
 
 /*
 NOTES::
@@ -29,7 +27,7 @@ unsigned short Hash(void* p) {
 }
 
 using namespace std;
-int main() {
+int main_2() {
 
     //The following example illustrates how reinterpret_cast differs from static_cast.
 
