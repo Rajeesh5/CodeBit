@@ -24,6 +24,12 @@
     <ClCompile Include="PonterConversion32_to_64.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WinString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StringArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">

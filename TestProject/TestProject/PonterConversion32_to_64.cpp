@@ -1,6 +1,6 @@
 #include "Header.h"
 #include <Windows.h>
-int main() {
+int main_x() {
 
 	int i = 100;
 	LPVOID lpReserved = &i;												// typedef void* LPVOID in windef.h    
