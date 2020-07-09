@@ -3,6 +3,6 @@
 
 class Rack {
 private:
-    int number;
-    std::string locationIdentifier;
-}
+    int m_number;
+    std::string m_locationIdentifier;
+};

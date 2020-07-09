@@ -6,8 +6,9 @@ class Account {
 
 public:
     bool resetPassword(){}
+    std::string getId() { return m_id; }
 private:
-    std::string id;
-    std::string password;
-    AccountStatus status;   
+    std::string   m_id;
+    std::string   m_password;
+    AccountStatus m_status;   
 };

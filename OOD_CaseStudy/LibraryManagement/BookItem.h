@@ -9,18 +9,20 @@
 
 class BookItem : public Book {
 private:
-    std::string barcode;
-    bool isReferenceOnly;
-    time_t borrowed;
-    time_t dueDate;
-    double price;
-    BookFormat format;
-    BookStatus status;
-    time_t dateOfPurchase;
-    time_t publicationDate;
-    Rack placedAt;
+    std::string m_barcode;
+    bool m_isReferenceOnly;
+    time_t m_borrowed;
+    time_t m_dueDate;
+    double m_price;
+    BookFormat m_format;
+    BookStatus m_status;
+    time_t m_dateOfPurchase;
+    time_t m_publicationDate;
+    Rack m_placedAt;
 
 public:
     bool checkout(std::string memberId);
+    void updateBookItemStatus(BookStatus status);
+    bool getIsReferenceOnly();
 
 };

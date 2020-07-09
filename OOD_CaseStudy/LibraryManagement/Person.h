@@ -4,8 +4,8 @@
 
 class Person {
 private:
-    std::string name;
-    Address address;
-    std::string email;
-    std::string phone;
+    std::string   m_name;
+    Address       m_address;
+    std::string   m_email;
+    std::string   m_phone;
 };
