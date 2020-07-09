@@ -5,6 +5,7 @@
 
 #project files << Added by Rajeev.
 *.vcxproj*
+*.sln
 
 # User-specific files
 *.rsuser
