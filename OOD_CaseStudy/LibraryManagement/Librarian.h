@@ -7,7 +7,7 @@
 class Librarian : public Person {
 
 private:
-	Account m_accNbr;
+	Account* m_pAccNbr;
 
 public:
 	bool addBookItem(BookItem bookItem);

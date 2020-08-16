@@ -24,5 +24,6 @@ public:
     bool checkout(std::string memberId);
     void updateBookItemStatus(BookStatus status);
     bool getIsReferenceOnly();
+    std::string getBarCode() { return m_barcode; }
 
 };

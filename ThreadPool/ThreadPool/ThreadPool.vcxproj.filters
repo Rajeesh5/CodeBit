@@ -29,9 +29,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbsRequest.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Dispatcher.h">
       <Filter>Header Files</Filter>
     </ClInclude>

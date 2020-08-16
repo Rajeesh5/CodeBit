@@ -144,7 +144,6 @@
     <ClCompile Include="Worker.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbsRequest.h" />
     <ClInclude Include="Dispatcher.h" />
     <ClInclude Include="Request.h" />
     <ClInclude Include="Worker.h" />

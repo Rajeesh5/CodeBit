@@ -26,6 +26,7 @@ bool Dispatcher::init(int workers) {
 bool Dispatcher::stop() {
 	for (int i = 0; i < allWorkers.size(); ++i) {
 		allWorkers[i]->stop();
+
 	}
 	cout << "Stopped workers.\n";
 	for (int j = 0; j < threads.size(); ++j) {
@@ -36,18 +37,19 @@ bool Dispatcher::stop() {
 	return true;
 }
 
-void Dispatcher::addRequest(AbstractRequest* request) {
-	workersMutex.lock();
-	if (!workers.empty()) {
+void Dispatcher::addRequest(AbstractRequest* request) 
+{ 
+	workersMutex.lock();  
+	if (!workers.empty()) 
+	{ 
 		Worker* worker = workers.front();
 		worker->setRequest(request);
-		condition_variable* cv;
-		worker->getCondition(cv);
-		cv->notify_one();
+		worker->notify();
 		workers.pop();
 		workersMutex.unlock();
-	}
-	else {
+	} 
+	else 
+	{ 
 		workersMutex.unlock();
 		requestsMutex.lock();
 		requests.push(request);
@@ -57,19 +59,20 @@ void Dispatcher::addRequest(AbstractRequest* request) {
 
 bool Dispatcher::addWorker(Worker* worker) {
 	bool wait = true;
-	requestsMutex.lock();
-	if (!requests.empty()) {
+	requestsMutex.lock(); 
+	if (!requests.empty()) 
+	{ 
 		AbstractRequest* request = requests.front();
 		worker->setRequest(request);
 		requests.pop();
 		wait = false;
 		requestsMutex.unlock();
 	}
-	else {
+	else { 
 		requestsMutex.unlock();
 		workersMutex.lock();
 		workers.push(worker);
 		workersMutex.unlock();
-	}
+	}            
 	return wait;
 }

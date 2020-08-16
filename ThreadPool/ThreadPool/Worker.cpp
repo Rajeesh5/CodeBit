@@ -1,26 +1,26 @@
 
 #include "Worker.h"
 #include "Dispatcher.h"
-
-void Worker::getCondition(std::condition_variable* &cv) {
-	cv = &(this)->cv;
-}
+#include<iostream>
+#include <chrono>
 
 void Worker::run() {
 	while (running) {
 		if (ready) {
 			ready = false;
 			request->process();
-			request->finish();
-		}
-		if (Dispatcher::addWorker(this)) {
-			// Use the ready loop to deal with spurious wake-ups.
-			while (!ready && running) {
-				if (cv.wait_for(ulock, std::chrono::seconds(1)) ==	std::cv_status::timeout) {
-					// We timed out, but we keep waiting unless the worker is
-					// stopped by the dispatcher.
-				}
-			}
-		}
+			request->finish(); 
+		} 
+		//check if thread is still running, before adding to the dispatcher worker thread pool
+		if (running && Dispatcher::addWorker(this))
+		{            
+			// Use the ready loop to deal with spurious wake-ups. 
+			while (!ready && running) 
+			{
+				//Better to wait for condition to wake thread up rather than pooling for some seconds,
+				//as pooling on some vaiable takes CPU cycle and can reduce CPU performance
+				cv.wait(ulock, [&]() {return ready || !running; });
+			}       
+		}    
 	}
 }

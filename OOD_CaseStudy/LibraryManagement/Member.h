@@ -12,6 +12,7 @@ private:
 	Account *m_pAccNbr;
     time_t  m_dateOfMembership;
     int     m_totalBooksCheckedout;
+    BookReservation* m_pReservation;
 public:
 
     int  getTotalBooksCheckedOut();

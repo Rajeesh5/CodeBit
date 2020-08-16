@@ -19,6 +19,7 @@ enum BookStatus {
 };
 
 enum ReservationStatus {
+    COMPLETE,
     WAITING,
     PENDING,
     CANCELED,
