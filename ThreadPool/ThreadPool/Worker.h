@@ -16,7 +16,8 @@ class Worker {
 	bool ready;
 public:
 	Worker() {
-		running = true; ready = false; 
+		running = true; 
+		ready = false; 
 		ulock =	std::unique_lock<std::mutex>(mtx);
 	}
 	void run();

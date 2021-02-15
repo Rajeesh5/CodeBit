@@ -4,6 +4,8 @@
 #include "abstract_request.h"
 #include <string>
 using namespace std;
+
+
 typedef void (*logFunction)(string text);
 class Request : public AbstractRequest 
 { 

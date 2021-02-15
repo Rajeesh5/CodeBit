@@ -1,9 +1,10 @@
-#include "Header.h"
+﻿#include "Header.h"
 #include <vector>
 #include <string>
 #include <windows.h>
 #include <tchar.h>
 #include <cstring>
+#include <atlstr.h>
 
 
 //std::basic_string<wchar_t> is equivalent to wstring
@@ -72,7 +73,14 @@ void PdGetSqlKeywordList(CQStringArray& list)
 
 int main() {
 
-	CString test = _T(" Rajeev ");
+
+	setlocale(LC_ALL, "");
+	SetConsoleOutputCP(CP_UTF8);
+
+	CString test = _T("缺陷经历时间");
+
+	cout << test << endl;
+	//sprintf(test)
 
 
 	/*
